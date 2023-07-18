@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Systema_Registro_Matricula.Models.Curso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Curso</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+             Nombre profesor
+        </th>
+        <th>
+            Nombre Curso
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profesor.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre_Curso)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Curso }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Curso }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Curso })
+        </td>
+    </tr>
+}
+
+</table>
